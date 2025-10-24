@@ -65,7 +65,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-muted/30">
+    <section id="contact" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 
@@ -82,57 +82,118 @@ export function Contact() {
           </p>
         </div>
 
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          <Card className="hover-elevate transition-all duration-300">
+            <CardContent className="p-8 text-center">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
+                <Phone className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-2">Call Us 24/7</h3>
+              <a 
+                href="tel:+27698055580"
+                className="text-2xl font-bold text-primary block mb-2 hover-elevate"
+                data-testid="link-phone-contact"
+              >
+                <span data-testid="text-phone-number">069 805 5580</span>
+              </a>
+              <p className="text-sm text-muted-foreground" data-testid="text-phone-description">
+                Available 24/7 for emergency electrical and plumbing services
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="hover-elevate transition-all duration-300">
+            <CardContent className="p-8 text-center">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
+                <MessageCircle className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-2">WhatsApp Us</h3>
+              <a 
+                href="https://wa.me/27614055794?text=Hi%2C%20I%27m%20interested%20in%20your%20electrical%20and%20plumbing%20services%20in%20Durban."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl font-bold text-primary block mb-2 hover-elevate"
+                data-testid="link-whatsapp-contact"
+              >
+                <span data-testid="text-whatsapp-number">061 405 5794</span>
+              </a>
+              <p className="text-sm text-muted-foreground" data-testid="text-whatsapp-description">
+                Get a quick response via WhatsApp for quotes and inquiries
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="hover-elevate transition-all duration-300">
+            <CardContent className="p-8 text-center">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
+                <MapPin className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-2">Visit Us</h3>
+              <p className="font-semibold text-foreground mb-1" data-testid="text-building-name">
+                Mercury House
+              </p>
+              <p className="text-sm text-muted-foreground" data-testid="text-address-contact">
+                320 Anton Lembede Street<br />
+                Durban, 4001
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <Card>
               <CardHeader>
                 <CardTitle className="text-2xl">Send Us a Message</CardTitle>
+                <p className="text-muted-foreground">Fill out the form below and we'll respond within 24 hours</p>
               </CardHeader>
               <CardContent>
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Your Name *</FormLabel>
-                          <FormControl>
-                            <Input 
-                              placeholder="John Smith" 
-                              {...field} 
-                              data-testid="input-name"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Name *</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="John Smith" 
+                                {...field} 
+                                data-testid="input-name"
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Your Phone *</FormLabel>
-                          <FormControl>
-                            <Input 
-                              placeholder="0821234567" 
-                              {...field} 
-                              data-testid="input-phone"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Phone *</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="0821234567" 
+                                {...field} 
+                                data-testid="input-phone"
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
 
                     <FormField
                       control={form.control}
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Your Email</FormLabel>
+                          <FormLabel>Email</FormLabel>
                           <FormControl>
                             <Input 
                               type="email"
@@ -178,7 +239,7 @@ export function Contact() {
                       name="message"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Your Message *</FormLabel>
+                          <FormLabel>Message *</FormLabel>
                           <FormControl>
                             <Textarea 
                               placeholder="Please describe your electrical or plumbing needs..."
@@ -211,64 +272,22 @@ export function Contact() {
           <div className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Phone className="h-5 w-5 text-primary" />
-                  Call Us 24/7
-                </CardTitle>
+                <CardTitle className="text-xl">Find Us on the Map</CardTitle>
               </CardHeader>
-              <CardContent>
-                <a 
-                  href="tel:+27698055580"
-                  className="text-2xl font-bold text-primary transition-colors hover-elevate"
-                  data-testid="link-phone-contact"
-                >
-                  <span data-testid="text-phone-number">069 805 5580</span>
-                </a>
-                <p className="text-muted-foreground mt-2" data-testid="text-phone-description">
-                  Available 24/7 for emergency electrical and plumbing services
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MessageCircle className="h-5 w-5 text-primary" />
-                  WhatsApp Us
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <a 
-                  href="https://wa.me/27614055794?text=Hi%2C%20I%27m%20interested%20in%20your%20electrical%20and%20plumbing%20services%20in%20Durban."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-2xl font-bold text-primary transition-colors hover-elevate"
-                  data-testid="link-whatsapp-contact"
-                >
-                  <span data-testid="text-whatsapp-number">061 405 5794</span>
-                </a>
-                <p className="text-muted-foreground mt-2" data-testid="text-whatsapp-description">
-                  Get a quick response via WhatsApp for quotes and inquiries
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MapPin className="h-5 w-5 text-primary" />
-                  Our Location
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="font-semibold text-foreground" data-testid="text-building-name">
-                  Mercury House
-                </p>
-                <p className="text-muted-foreground" data-testid="text-address-contact">
-                  320 Anton Lembede Street<br />
-                  Durban, 4001<br />
-                  South Africa
-                </p>
+              <CardContent className="p-0">
+                <div className="w-full h-[400px] rounded-b-lg overflow-hidden" data-testid="container-google-map">
+                  <iframe
+                    src="https://maps.google.com/maps?q=Mercury+House,+320+Anton+Lembede+Street,+Durban,+4001,+South+Africa&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Mercury House Location Map"
+                    data-testid="iframe-google-map"
+                  />
+                </div>
               </CardContent>
             </Card>
 
@@ -280,57 +299,28 @@ export function Contact() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="font-semibold text-foreground mb-2" data-testid="text-emergency-availability">
-                  24/7 Emergency Service Available
-                </p>
-                <p className="text-muted-foreground" data-testid="text-business-hours">
-                  Regular Hours: Mon-Fri 8:00 AM - 5:00 PM<br />
-                  Weekend & After Hours: Emergency Call-Outs
-                </p>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center py-2 border-b border-border">
+                    <span className="text-muted-foreground">Monday - Friday</span>
+                    <span className="font-semibold">8:00 AM - 5:00 PM</span>
+                  </div>
+                  <div className="flex justify-between items-center py-2 border-b border-border">
+                    <span className="text-muted-foreground">Weekend & After Hours</span>
+                    <span className="font-semibold">Emergency Call-Outs</span>
+                  </div>
+                  <div className="pt-4">
+                    <div className="bg-primary/10 rounded-md p-4 text-center">
+                      <p className="font-bold text-primary text-lg" data-testid="text-emergency-availability">
+                        24/7 Emergency Service Available
+                      </p>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Call anytime for urgent electrical or plumbing issues
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Facebook className="h-5 w-5 text-primary" />
-                  Follow Us
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <a 
-                  href="https://www.facebook.com/Electrify-Electrical-Contractors-Prepaid-meter-specialists-1611937902412875"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary transition-colors font-medium hover-elevate"
-                  data-testid="link-facebook-contact"
-                >
-                  Visit our Facebook Page
-                </a>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="mt-12">
-            <h3 className="text-2xl font-bold text-foreground mb-6 text-center" data-testid="text-find-us-title">
-              Find Us on the Map
-            </h3>
-            <div className="w-full h-[450px] rounded-lg overflow-hidden border" data-testid="container-google-map">
-              <iframe
-                src="https://maps.google.com/maps?q=Mercury+House,+320+Anton+Lembede+Street,+Durban,+4001,+South+Africa&output=embed"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Mercury House Location Map"
-                data-testid="iframe-google-map"
-              />
-            </div>
-            <p className="text-center text-muted-foreground mt-4" data-testid="text-map-description">
-              Visit us at Mercury House, centrally located in Durban's business district
-            </p>
           </div>
         </div>
       </div>
