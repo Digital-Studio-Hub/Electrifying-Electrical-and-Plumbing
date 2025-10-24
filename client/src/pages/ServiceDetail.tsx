@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { getServiceBySlug } from "@/data/services";
+import { SEO } from "@/components/SEO";
+import { SEO_CONFIG } from "@/config/seo";
 
 export default function ServiceDetail() {
   const [, params] = useRoute("/services/:slug");
@@ -32,8 +34,19 @@ export default function ServiceDetail() {
 
   const Icon = service.icon;
 
+  const seoTitle = `${service.title} Durban | Electrifying Electrical and Plumbing`;
+  const seoDescription = `${service.longDescription} ${service.emergencyAvailable ? '24/7 emergency service available.' : ''} Professional ${service.title.toLowerCase()} in Durban. Call 069 805 5580 for fast, reliable service.`;
+  const canonicalUrl = `${SEO_CONFIG.baseUrl}/services/${service.slug}`;
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        keywords={service.keywords}
+        canonical={canonicalUrl}
+        ogType="website"
+      />
       <div className="bg-[#111111] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link href="/">
