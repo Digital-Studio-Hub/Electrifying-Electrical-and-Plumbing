@@ -91,12 +91,12 @@ export function Services() {
             Need immediate assistance? We're available 24/7 for emergencies
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:0698055580" data-testid="link-call-services">
+            <a href="tel:+27698055580" data-testid="link-call-services">
               <Button size="lg" variant="default" className="font-semibold" data-testid="button-call-services">
                 Call 069 805 5580
               </Button>
             </a>
-            <a href="https://wa.me/27614055794" data-testid="link-whatsapp-services">
+            <a href="https://wa.me/27614055794?text=Hi%2C%20I%27m%20interested%20in%20your%20electrical%20and%20plumbing%20services%20in%20Durban." target="_blank" rel="noopener noreferrer" data-testid="link-whatsapp-services">
               <Button size="lg" variant="secondary" className="font-semibold" data-testid="button-whatsapp-services">
                 WhatsApp 061 405 5794
               </Button>

@@ -68,7 +68,7 @@ export function Footer() {
                 <div>
                   <p className="text-white/70 text-sm">24/7 Emergency</p>
                   <a 
-                    href="tel:0698055580" 
+                    href="tel:+27698055580" 
                     className="text-white hover:text-primary transition-colors font-medium"
                     data-testid="link-phone-footer"
                   >
@@ -81,7 +81,9 @@ export function Footer() {
                 <div>
                   <p className="text-white/70 text-sm">WhatsApp</p>
                   <a 
-                    href="https://wa.me/27614055794" 
+                    href="https://wa.me/27614055794?text=Hi%2C%20I%27m%20interested%20in%20your%20electrical%20and%20plumbing%20services%20in%20Durban." 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-white hover:text-primary transition-colors font-medium"
                     data-testid="link-whatsapp-footer"
                   >

@@ -218,7 +218,7 @@ export function Contact() {
               </CardHeader>
               <CardContent>
                 <a 
-                  href="tel:0698055580"
+                  href="tel:+27698055580"
                   className="text-2xl font-bold text-primary transition-colors hover-elevate"
                   data-testid="link-phone-contact"
                 >
@@ -239,7 +239,9 @@ export function Contact() {
               </CardHeader>
               <CardContent>
                 <a 
-                  href="https://wa.me/27614055794"
+                  href="https://wa.me/27614055794?text=Hi%2C%20I%27m%20interested%20in%20your%20electrical%20and%20plumbing%20services%20in%20Durban."
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-2xl font-bold text-primary transition-colors hover-elevate"
                   data-testid="link-whatsapp-contact"
                 >

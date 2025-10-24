@@ -70,7 +70,7 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <a href="tel:0698055580" className="hidden sm:block" data-testid="link-call-header">
+            <a href="tel:+27698055580" className="hidden sm:block" data-testid="link-call-header">
               <Button 
                 size="default"
                 variant="default"
@@ -130,7 +130,7 @@ export function Header() {
               >
                 Contact
               </button>
-              <a href="tel:0698055580" className="mt-2" data-testid="link-call-mobile">
+              <a href="tel:+27698055580" className="mt-2" data-testid="link-call-mobile">
                 <Button 
                   variant="default" 
                   className="w-full font-semibold"

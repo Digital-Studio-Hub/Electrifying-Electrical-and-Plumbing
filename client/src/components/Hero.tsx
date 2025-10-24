@@ -65,7 +65,7 @@ export function Hero() {
               Get a Free Quote
             </Button>
             
-            <a href="tel:0698055580" data-testid="link-call-hero">
+            <a href="tel:+27698055580" data-testid="link-call-hero">
               <Button
                 size="lg"
                 variant="outline"
@@ -77,7 +77,7 @@ export function Hero() {
               </Button>
             </a>
 
-            <a href="https://wa.me/27614055794" data-testid="link-whatsapp-hero">
+            <a href="https://wa.me/27614055794?text=Hi%2C%20I%27m%20interested%20in%20your%20electrical%20and%20plumbing%20services%20in%20Durban." target="_blank" rel="noopener noreferrer" data-testid="link-whatsapp-hero">
               <Button
                 size="lg"
                 variant="outline"
