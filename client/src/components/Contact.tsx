@@ -310,6 +310,28 @@ export function Contact() {
               </CardContent>
             </Card>
           </div>
+
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-foreground mb-6 text-center" data-testid="text-find-us-title">
+              Find Us on the Map
+            </h3>
+            <div className="w-full h-[450px] rounded-lg overflow-hidden border" data-testid="container-google-map">
+              <iframe
+                src="https://maps.google.com/maps?q=Mercury+House,+320+Anton+Lembede+Street,+Durban,+4001,+South+Africa&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mercury House Location Map"
+                data-testid="iframe-google-map"
+              />
+            </div>
+            <p className="text-center text-muted-foreground mt-4" data-testid="text-map-description">
+              Visit us at Mercury House, centrally located in Durban's business district
+            </p>
+          </div>
         </div>
       </div>
     </section>
