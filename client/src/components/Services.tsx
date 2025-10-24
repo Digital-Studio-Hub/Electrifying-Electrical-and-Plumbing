@@ -1,45 +1,8 @@
-import { Zap, Droplets, Gauge, Wrench, Lightbulb, ShowerHead } from "lucide-react";
+import { Link } from "wouter";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { servicesData } from "@/data/services";
 
-const services = [
-  {
-    icon: Zap,
-    title: "Emergency Electrical Repair",
-    description: "24/7 availability for any electrical faults, power outages, or urgent repairs. Fast response times across Durban.",
-    keywords: "emergency electrician Durban"
-  },
-  {
-    icon: ShowerHead,
-    title: "Bathroom Plumbing Installation",
-    description: "Full installation and renovation services for toilets, basins, showers, and piping. Professional workmanship guaranteed.",
-    keywords: "plumber Durban"
-  },
-  {
-    icon: Droplets,
-    title: "Water Heater / Geyser Installation",
-    description: "Expert repair and installation for all models of water heaters and geysers. Quick turnaround for emergencies.",
-    keywords: "geyser repair Durban"
-  },
-  {
-    icon: Gauge,
-    title: "Prepaid Meter Specialists",
-    description: "Official installation, repair, and management of prepaid electrical meters. Authorized supplier in Durban South.",
-    keywords: "prepaid meter installation Durban"
-  },
-  {
-    icon: Wrench,
-    title: "General Plumbing & Maintenance",
-    description: "From leaky taps and burst pipes to blocked drains, we handle all plumbing maintenance with professional care.",
-    keywords: "blocked drain Durban, emergency plumber Durban"
-  },
-  {
-    icon: Lightbulb,
-    title: "Wiring, Lighting & DB Boards",
-    description: "Safe installation of new wiring, light fixtures, plugs, and distribution board upgrades. C.O.C. compliance certified.",
-    keywords: "DB board repair Durban"
-  },
-];
 
 export function Services() {
   return (
@@ -62,26 +25,27 @@ export function Services() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
+          {servicesData.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Card 
-                key={index}
-                className="hover-elevate transition-transform duration-300 hover:-translate-y-1"
-                data-testid={`card-service-${index}`}
-              >
-                <CardHeader className="space-y-4 p-8">
-                  <div className="h-16 w-16 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Icon className="h-8 w-8 text-primary" data-testid={`icon-service-${index}`} />
-                  </div>
-                  <CardTitle className="text-xl font-semibold" data-testid={`text-service-title-${index}`}>
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-base leading-relaxed" data-testid={`text-service-desc-${index}`}>
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              <Link key={service.slug} href={`/services/${service.slug}`} data-testid={`link-service-${index}`}>
+                <Card 
+                  className="hover-elevate transition-transform duration-300 hover:-translate-y-1 cursor-pointer h-full"
+                  data-testid={`card-service-${index}`}
+                >
+                  <CardHeader className="space-y-4 p-8">
+                    <div className="h-16 w-16 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <Icon className="h-8 w-8 text-primary" data-testid={`icon-service-${index}`} />
+                    </div>
+                    <CardTitle className="text-xl font-semibold" data-testid={`text-service-title-${index}`}>
+                      {service.title}
+                    </CardTitle>
+                    <CardDescription className="text-base leading-relaxed" data-testid={`text-service-desc-${index}`}>
+                      {service.shortDescription}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </Link>
             );
           })}
         </div>
