@@ -1,0 +1,148 @@
+{
+  "businessName": "Electrifying Electrical and Plumbing",
+  "layout": {
+    "header": {
+      "logoText": "Electrifying Electrical and Plumbing",
+      "navLinks": [
+        { "text": "Home", "href": "/" },
+        { "text": "Services", "href": "#services" },
+        { "text": "Our Work", "href": "#gallery" },
+        { "text": "Testimonials", "href": "#testimonials" },
+        { "text": "Contact", "href": "#contact" }
+      ],
+      "contactButton": {
+        "text": "Call Now: 0698055580",
+        "href": "tel:0698055580"
+      }
+    },
+    "hero": {
+      "title": "Your Expert Electrical & Plumbing Solution",
+      "subtitle": "Professional, Reliable 24/7 Service for Electrical and Plumbing Emergencies in Durban. Prepaid Meter Specialists.",
+      "ctaButton": {
+        "text": "Get a Free Quote",
+        "href": "#contact"
+      },
+      "backgroundImage": "url_to_high_quality_hero_image.jpg"
+    },
+    "services": {
+      "title": "Our Professional Services",
+      "description": "We offer a complete range of electrical and plumbing solutions for your home or business. We clearly list our services so you know exactly how we can help.",
+      "serviceList": [
+        {
+          "title": "Emergency Electrical Repair",
+          "description": "24/7 availability for any electrical faults, power outages, or urgent repairs.",
+          "icon": "icon-bolt"
+        },
+        {
+          "title": "Bathroom Plumbing Installation",
+          "description": "Full installation and renovation services for toilets, basins, showers, and piping.",
+          "icon": "icon-shower"
+        },
+        {
+          "title": "Water Heater / Geyser Installation",
+          "description": "Expert repair and installation for all models of water heaters and geysers.",
+          "icon": "icon-water-heater"
+        },
+        {
+          "title": "Prepaid Meter Specialists",
+          "description": "Official installation, repair, and management of prepaid electrical meters.",
+          "icon": "icon-meter"
+        },
+        {
+          "title": "General Plumbing & Maintenance",
+          "description": "From leaky taps and burst pipes to blocked drains, we handle all plumbing maintenance.",
+          "icon": "icon-wrench"
+        },
+        {
+          "title": "Wiring, Lighting & DB Boards",
+          "description": "Safe installation of new wiring, light fixtures, plugs, and distribution board upgrades.",
+          "icon": "icon-lightbulb"
+        }
+      ]
+    },
+    "gallery": {
+      "title": "Showcase of Our Past Work",
+      "description": "High-quality photos of our completed projects. Before and after shots are powerful!",
+      "images": [
+        {
+          "src": "path/to/electrical-work-after.jpg",
+          "alt": "Newly installed distribution board",
+          "caption": "DB Board Upgrade"
+        },
+        {
+          "src": "path/to/plumbing-work-after.jpg",
+          "alt": "Newly installed modern bathroom plumbing",
+          "caption": "Bathroom Installation"
+        },
+        {
+          "src": "path/to/geyser-install.jpg",
+          "alt": "New water heater installation",
+          "caption": "Geyser Installation"
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "What Our Customers Say",
+      "description": "We leverage online reviews and are proud of our reputation. See what satisfied customers are saying on our Google Business Profile.",
+      "reviews": [
+        {
+          "quote": "Incredible service! Called them for an emergency burst pipe, and they were at my house in 30 minutes. Professional and fast.",
+          "author": "S. Naidoo, Durban"
+        },
+        {
+          "quote": "Finally found reliable electricians! They installed our prepaid meter and fixed our wiring. Excellent job and very clean work.",
+          "author": "T. Johnson, Umhlanga"
+        },
+        {
+          "quote": "We actively ask every satisfied customer to leave a review on our Google Business Profile. We make it easy by sending a direct link!",
+          "author": "@Raymond Ngobeni"
+        }
+      ]
+    },
+    "contactSection": {
+      "title": "Get a Fast, Free Quote",
+      "description": "Contact us 24/7 for any electrical or plumbing need. Fill out the form, call, or send us a WhatsApp message.",
+      "contactForm": {
+        "fields": [
+          { "name": "name", "label": "Your Name", "type": "text", "required": true },
+          { "name": "phone", "label": "Your Phone", "type": "tel", "required": true },
+          { "name": "email", "label": "Your Email", "type": "email", "required": false },
+          { "name": "service", "label": "Service Needed", "type": "select", "options": ["Electrical", "Plumbing", "Emergency", "Quote"] },
+          { "name": "message", "label": "Your Message", "type": "textarea", "required": true }
+        ],
+        "submitButtonText": "Send Request"
+      },
+      "contactDetails": [
+        {
+          "type": "Call",
+          "value": "069 805 5580",
+          "href": "tel:0698055580"
+        },
+        {
+          "type": "WhatsApp",
+          "value": "061 405 5794",
+          "href": "https://wa.me/27614055794"
+        },
+        {
+          "type": "Address",
+          "value": "Mercury House, 320 Anton Lembede Street, Durban, 4001"
+        }
+      ]
+    },
+    "footer": {
+      "companyName": "Electrifying Electrical and Plumbing",
+      "copyright": "© 2024 Electrifying Electrical and Plumbing. All Rights Reserved.",
+      "socialLinks": [
+        {
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/Electrify-Electrical-Contractors-Prepaid-meter-specialists-1611937902412875"
+        }
+      ],
+      "footerContact": {
+        "address": "Mercury House, 320 Anton Lembede Street, Durban, 4001",
+        "phone": "069 805 5580",
+        "whatsapp": "061 405 5794"
+      }
+    }
+  }
+}
