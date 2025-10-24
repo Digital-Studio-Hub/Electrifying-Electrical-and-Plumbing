@@ -26,7 +26,7 @@ export function Hero() {
         <div className="max-w-3xl">
           <div className="flex flex-wrap gap-3 mb-6">
             <Badge 
-              className="bg-primary text-white font-semibold"
+              className="bg-primary text-primary-foreground font-semibold"
               data-testid="badge-24-7"
             >
               <Clock className="h-4 w-4 mr-2" />

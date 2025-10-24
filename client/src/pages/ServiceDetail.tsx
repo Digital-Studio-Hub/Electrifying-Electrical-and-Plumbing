@@ -35,7 +35,7 @@ export default function ServiceDetail() {
   const Icon = service.icon;
 
   const seoTitle = `${service.title} Durban | Electrifying Electrical and Plumbing`;
-  const seoDescription = `${service.longDescription} ${service.emergencyAvailable ? '24/7 emergency service available.' : ''} Professional ${service.title.toLowerCase()} in Durban. Call 069 805 5580 for fast, reliable service.`;
+  const seoDescription = `${service.shortDescription}. ${service.emergencyAvailable ? '24/7 emergency service available. ' : ''}Professional ${service.title.toLowerCase()} in Durban. Call 069 805 5580 for fast, reliable service.`;
   const canonicalUrl = `${SEO_CONFIG.baseUrl}/services/${service.slug}`;
 
   return (
@@ -69,7 +69,7 @@ export default function ServiceDetail() {
                 {service.title}
               </h1>
               {service.emergencyAvailable && (
-                <Badge className="bg-primary text-white mb-4" data-testid="badge-emergency">
+                <Badge className="bg-primary text-primary-foreground mb-4" data-testid="badge-emergency">
                   <Clock className="h-4 w-4 mr-2" />
                   24/7 Emergency Service
                 </Badge>

@@ -1,6 +1,5 @@
 import { MapPin, Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { InteractiveMap } from "@/components/InteractiveMap";
 
 const serviceAreas = [
   {
@@ -82,13 +81,6 @@ export function ServiceAreas() {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="mb-12">
-          <h3 className="text-3xl font-bold text-center text-foreground mb-8" data-testid="text-interactive-map-title">
-            Interactive Coverage Map
-          </h3>
-          <InteractiveMap />
         </div>
 
         <div className="bg-background rounded-lg overflow-hidden shadow-lg">
