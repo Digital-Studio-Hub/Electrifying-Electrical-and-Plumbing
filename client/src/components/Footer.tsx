@@ -1,5 +1,6 @@
 import { Phone, MessageCircle, MapPin, Facebook } from "lucide-react";
 import badgeImage from "@assets/Level 1_1761330031028.png";
+import lekkerLogo from "@assets/lekkerlogo_1761554613337.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -146,13 +147,38 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/70 text-sm">
-              © {currentYear} Electrifying Electrical and Plumbing. All Rights Reserved.
-            </p>
-            <p className="text-white/70 text-sm">
-              Professional Electrical & Plumbing Services in Durban
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <div className="text-center md:text-left">
+              <p className="text-white/70 text-sm">
+                © {currentYear} Electrifying Electrical and Plumbing. All Rights Reserved.
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center justify-center">
+              <a 
+                href="https://lekker.network/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+                data-testid="link-lekker-logo"
+              >
+                <img 
+                  src={lekkerLogo}
+                  alt="Lekker Network Logo"
+                  className="h-8 w-auto mb-1 transition-transform duration-300 group-hover:scale-105"
+                  data-testid="img-lekker-logo"
+                />
+                <p className="text-white/70 text-xs text-center group-hover:text-primary transition-colors" data-testid="text-powered-by">
+                  Powered by Lekker Network
+                </p>
+              </a>
+            </div>
+
+            <div className="text-center md:text-right">
+              <p className="text-white/70 text-sm">
+                Professional Electrical & Plumbing Services in Durban
+              </p>
+            </div>
           </div>
         </div>
       </div>
