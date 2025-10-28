@@ -3,7 +3,34 @@
 ## Overview
 Professional marketing website for Electrifying Electrical and Plumbing, a Durban-based electrical and plumbing services company. The site features a modern yellow, white, and black color scheme with comprehensive SEO optimization for local Durban searches.
 
-## Recent Changes (October 24, 2025)
+## Recent Changes
+
+### October 28, 2025
+- **Multi-Route Architecture**: Restructured from single-page to multi-route app with separate pages:
+  - `/service-areas` - Service Areas page with Google Maps integration
+  - `/gallery` - Gallery page showcasing completed work
+  - `/contact` - Contact page with form and business information
+- **Scroll-Adaptive Navigation**: Header component now changes background and text colors based on scroll position for better visibility
+- **SPA Navigation**: Updated all navigation links to use wouter's `navigate()` function instead of `window.location.href` to prevent page reloads
+- **ZeptoMail Email Integration**: 
+  - Installed and configured ZeptoMail package for professional email delivery
+  - Secure API key management via `ZEPTOMAIL_API_KEY` environment variable
+  - Professional HTML email template with yellow branding
+  - Emergency requests highlighted with red border and "URGENT:" text banner
+  - Emails sent to raymond@digitalstudiohub.com from noreply@electrifyelectrical.co.za
+  - TypeScript declarations created in `server/zeptomail.d.ts`
+  - Graceful error handling (logs errors but doesn't fail user request)
+- **WhatsApp Floating Button**:
+  - Added floating WhatsApp button component (`WhatsAppFloat.tsx`)
+  - Fixed bottom-right positioning with smooth animations
+  - Appears after scrolling 300px down the page
+  - WhatsApp green background (#25D366) with animated pulse indicator
+  - Pre-filled message linking to WhatsApp number 061 405 5794
+  - Uses approved `hover-elevate` and `active-elevate-2` design patterns
+  - Available on all pages via App.tsx integration
+- **Code Quality**: Removed all emoji from codebase per strict design guidelines (replaced with text-based alternatives)
+
+### October 24, 2025
 - **Initial Frontend Implementation**: Built complete landing page with all sections
 - **Design System**: Updated to yellow, white, and black color palette (HSL: 48 95% 53% for primary yellow)
 - **SEO Optimization**: Added comprehensive meta tags targeting Durban-based keywords with canonical URLs
@@ -20,15 +47,20 @@ Professional marketing website for Electrifying Electrical and Plumbing, a Durba
 ### Frontend Structure
 - **Framework**: React with TypeScript, Vite, Wouter for routing
 - **UI Components**: Shadcn/ui with Tailwind CSS
-- **Design**: Dark and orange brand color scheme with professional service business layout
-- **Key Sections**:
-  - Header: Sticky navigation with emergency call button
+- **Design**: Yellow (#F9CB15), white, and black color scheme with professional service business layout
+- **Routing**: Multi-page architecture with separate routes for Service Areas, Gallery, and Contact
+- **Key Pages**:
+  - Home (`/`): Landing page with Hero, Services, Testimonials sections
+  - Service Areas (`/service-areas`): Coverage map and area information
+  - Gallery (`/gallery`): Portfolio of completed work
+  - Contact (`/contact`): Contact form and business information
+  - Service Detail Pages: Individual pages for each of 6 services
+- **Key Components**:
+  - Header: Scroll-adaptive sticky navigation with emergency call button and SPA navigation
   - Hero: Full-width hero with background image and CTAs
   - Services: 6-service grid showcasing electrical and plumbing offerings
-  - Gallery: 4-image portfolio of completed work
-  - Testimonials: Customer reviews with 5-star ratings
-  - Contact: Multi-channel contact form with phone, WhatsApp, and location info
-  - Footer: Complete business information and quick links
+  - WhatsAppFloat: Floating WhatsApp button with delayed visibility and animations
+  - Footer: Complete business information with Lekker Network branding
 
 ### Business Information
 - **Primary Contact**: 069 805 5580 (24/7 emergency)
@@ -69,12 +101,23 @@ Professional marketing website for Electrifying Electrical and Plumbing, a Durba
 - **Trust Signals**: Google Reviews, customer testimonials, completed work showcase
 
 ## Technology Stack
-- **Frontend**: React, TypeScript, Tailwind CSS, Shadcn/ui
+- **Frontend**: React, TypeScript, Tailwind CSS, Shadcn/ui, Wouter (routing)
 - **Backend**: Express.js, Node.js
+- **Email Service**: ZeptoMail (professional transactional email)
 - **Forms**: React Hook Form with Zod validation
-- **Routing**: Wouter
 - **Build**: Vite
 - **Fonts**: Inter, Poppins (Google Fonts)
+
+## Backend API Endpoints
+- **POST /api/contact**: Contact form submission endpoint
+  - Validates form data using Zod schema
+  - Sends professional HTML email via ZeptoMail
+  - Returns success message to user
+  - Graceful error handling for email failures
+
+## Environment Variables
+- **ZEPTOMAIL_API_KEY**: API key for ZeptoMail email service (required for email functionality)
+- **SESSION_SECRET**: Session secret for Express session management
 
 ## Contact Form Schema
 ```typescript
