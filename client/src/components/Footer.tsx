@@ -10,10 +10,13 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Electrifying Electrical and Plumbing</h3>
+            <h3 className="text-xl font-bold mb-4">
+              Electrifying Electrical and Plumbing
+            </h3>
             <p className="text-white/70 mb-4 text-sm">
-              Your trusted partner for all electrical and plumbing needs in Durban. 
-              We are specialists in both trades, providing professional 24/7 emergency service.
+              Your trusted partner for all electrical and plumbing needs in
+              Durban. We are specialists in both trades, providing professional
+              24/7 emergency service.
             </p>
             <p className="text-white/70 text-sm">
               Prepaid meter specialists and authorized supplier.
@@ -25,7 +28,11 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <button
-                  onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() =>
+                    document
+                      .getElementById("services")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
                   className="text-white/70 hover:text-primary transition-colors text-sm"
                   data-testid="link-services-footer"
                 >
@@ -34,7 +41,11 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() =>
+                    document
+                      .getElementById("gallery")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
                   className="text-white/70 hover:text-primary transition-colors text-sm"
                   data-testid="link-gallery-footer"
                 >
@@ -43,7 +54,11 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => document.getElementById("testimonials")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() =>
+                    document
+                      .getElementById("testimonials")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
                   className="text-white/70 hover:text-primary transition-colors text-sm"
                   data-testid="link-testimonials-footer"
                 >
@@ -52,7 +67,11 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() =>
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
                   className="text-white/70 hover:text-primary transition-colors text-sm"
                   data-testid="link-contact-footer"
                 >
@@ -69,8 +88,8 @@ export function Footer() {
                 <Phone className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-white/70 text-xs">24/7 Emergency</p>
-                  <a 
-                    href="tel:+27698055580" 
+                  <a
+                    href="tel:+27698055580"
                     className="text-white hover:text-primary transition-colors font-medium text-sm"
                     data-testid="link-phone-footer"
                   >
@@ -82,8 +101,8 @@ export function Footer() {
                 <MessageCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-white/70 text-xs">WhatsApp</p>
-                  <a 
-                    href="https://wa.me/27614055794?text=Hi%2C%20I%27m%20interested%20in%20your%20electrical%20and%20plumbing%20services%20in%20Durban." 
+                  <a
+                    href="https://wa.me/27614055794?text=Hi%2C%20I%27m%20interested%20in%20your%20electrical%20and%20plumbing%20services%20in%20Durban."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-primary transition-colors font-medium text-sm"
@@ -97,9 +116,14 @@ export function Footer() {
                 <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-white/70 text-xs">Location</p>
-                  <p className="text-white text-sm" data-testid="text-address-footer">
-                    Mercury House<br />
-                    320 Anton Lembede Street<br />
+                  <p
+                    className="text-white text-sm"
+                    data-testid="text-address-footer"
+                  >
+                    Mercury House
+                    <br />
+                    320 Anton Lembede Street
+                    <br />
                     Durban, 4001
                   </p>
                 </div>
@@ -108,7 +132,7 @@ export function Footer() {
                 <Facebook className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-white/70 text-xs">Follow Us</p>
-                  <a 
+                  <a
                     href="https://www.facebook.com/Electrify-Electrical-Contractors-Prepaid-meter-specialists-1611937902412875"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -124,21 +148,24 @@ export function Footer() {
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Verified Badge</h4>
-            <a 
+            <a
               href="https://lekker.network/the-lekker-network-verified"
               target="_blank"
               rel="noopener noreferrer"
               className="block group"
               data-testid="link-lekker-badge"
             >
-              <div className="flex flex-col items-center">
-                <img 
+              <div className="flex flex-col items-center justify-center">
+                <img
                   src={badgeImage}
                   alt="Lekker Network Verified Badge"
                   className="w-32 h-32 mb-2 transition-transform duration-300 group-hover:scale-105"
                   data-testid="img-lekker-badge"
                 />
-                <p className="text-white/90 text-sm font-medium text-center group-hover:text-primary transition-colors" data-testid="text-lekker-verified">
+                <p
+                  className="text-white/90 text-sm font-medium text-center group-hover:text-primary transition-colors"
+                  data-testid="text-lekker-verified"
+                >
                   Lekker Network Verified
                 </p>
               </div>
@@ -150,25 +177,29 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             <div className="text-center md:text-left">
               <p className="text-white/70 text-sm">
-                © {currentYear} Electrifying Electrical and Plumbing. All Rights Reserved.
+                © {currentYear} Electrifying Electrical and Plumbing. All
+                Rights Reserved.
               </p>
             </div>
-            
+
             <div className="flex flex-col items-center justify-center">
-              <a 
+              <a
                 href="https://lekker.network/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block group"
                 data-testid="link-lekker-logo"
               >
-                <img 
+                <img
                   src={lekkerLogo}
                   alt="Lekker Network Logo"
                   className="h-8 w-auto mb-1 transition-transform duration-300 group-hover:scale-105"
                   data-testid="img-lekker-logo"
                 />
-                <p className="text-white/70 text-xs text-center group-hover:text-primary transition-colors" data-testid="text-powered-by">
+                <p
+                  className="text-white/70 text-xs text-center group-hover:text-primary transition-colors"
+                  data-testid="text-powered-by"
+                >
                   Powered by Lekker Network
                 </p>
               </a>

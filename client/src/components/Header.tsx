@@ -1,24 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "wouter";
 import logoImage from "@assets/Logo_1761297985473.png";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [location, navigate] = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const isHomePage = location === "/";
 
   const scrollToSection = (id: string) => {
+    setMobileMenuOpen(false);
+    
+    if (!isHomePage) {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
+    }
+
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setMobileMenuOpen(false);
     }
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#111111] border-b border-white/10">
+    <header 
+      className={`sticky top-0 z-50 transition-all duration-300 border-b ${
+        scrolled 
+          ? "bg-background/95 backdrop-blur-sm border-border shadow-sm" 
+          : "bg-[#111111] border-white/10"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 cursor-pointer">
             <img 
               src={logoImage} 
               alt="Electrifying Logo" 
@@ -26,47 +58,86 @@ export function Header() {
               data-testid="img-logo"
             />
             <div className="hidden md:block">
-              <h1 className="text-white font-bold text-lg">Electrifying</h1>
-              <p className="text-white/70 text-xs">Electrical & Plumbing</p>
+              <h1 className={`font-bold text-lg transition-colors ${
+                scrolled ? "text-foreground" : "text-white"
+              }`}>
+                Electrifying
+              </h1>
+              <p className={`text-xs transition-colors ${
+                scrolled ? "text-muted-foreground" : "text-white/70"
+              }`}>
+                Electrical & Plumbing
+              </p>
             </div>
-          </div>
+          </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection("home")}
-              className="text-white hover:text-primary transition-colors text-sm font-medium"
+            <Link
+              href="/"
+              className={`transition-colors text-sm font-medium ${
+                scrolled 
+                  ? "text-foreground hover:text-primary" 
+                  : "text-white hover:text-primary"
+              }`}
               data-testid="link-home"
             >
               Home
-            </button>
+            </Link>
             <button
               onClick={() => scrollToSection("services")}
-              className="text-white hover:text-primary transition-colors text-sm font-medium"
+              className={`transition-colors text-sm font-medium ${
+                scrolled 
+                  ? "text-foreground hover:text-primary" 
+                  : "text-white hover:text-primary"
+              }`}
               data-testid="link-services"
             >
               Services
             </button>
-            <button
-              onClick={() => scrollToSection("gallery")}
-              className="text-white hover:text-primary transition-colors text-sm font-medium"
+            <Link
+              href="/service-areas"
+              className={`transition-colors text-sm font-medium ${
+                scrolled 
+                  ? "text-foreground hover:text-primary" 
+                  : "text-white hover:text-primary"
+              }`}
+              data-testid="link-service-areas"
+            >
+              Service Areas
+            </Link>
+            <Link
+              href="/gallery"
+              className={`transition-colors text-sm font-medium ${
+                scrolled 
+                  ? "text-foreground hover:text-primary" 
+                  : "text-white hover:text-primary"
+              }`}
               data-testid="link-gallery"
             >
               Our Work
-            </button>
+            </Link>
             <button
               onClick={() => scrollToSection("testimonials")}
-              className="text-white hover:text-primary transition-colors text-sm font-medium"
+              className={`transition-colors text-sm font-medium ${
+                scrolled 
+                  ? "text-foreground hover:text-primary" 
+                  : "text-white hover:text-primary"
+              }`}
               data-testid="link-testimonials"
             >
               Testimonials
             </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="text-white hover:text-primary transition-colors text-sm font-medium"
+            <Link
+              href="/contact"
+              className={`transition-colors text-sm font-medium ${
+                scrolled 
+                  ? "text-foreground hover:text-primary" 
+                  : "text-white hover:text-primary"
+              }`}
               data-testid="link-contact"
             >
               Contact
-            </button>
+            </Link>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -84,7 +155,9 @@ export function Header() {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden text-white p-2"
+              className={`lg:hidden p-2 transition-colors ${
+                scrolled ? "text-foreground" : "text-white"
+              }`}
               data-testid="button-mobile-menu"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -93,43 +166,80 @@ export function Header() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-white/10">
+          <div className={`lg:hidden py-4 transition-colors ${
+            scrolled ? "border-t border-border" : "border-t border-white/10"
+          }`}>
             <nav className="flex flex-col gap-4">
-              <button
-                onClick={() => scrollToSection("home")}
-                className="text-white hover:text-primary transition-colors text-left py-2"
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`transition-colors text-left py-2 ${
+                  scrolled 
+                    ? "text-foreground hover:text-primary" 
+                    : "text-white hover:text-primary"
+                }`}
                 data-testid="link-home-mobile"
               >
                 Home
-              </button>
+              </Link>
               <button
                 onClick={() => scrollToSection("services")}
-                className="text-white hover:text-primary transition-colors text-left py-2"
+                className={`transition-colors text-left py-2 ${
+                  scrolled 
+                    ? "text-foreground hover:text-primary" 
+                    : "text-white hover:text-primary"
+                }`}
                 data-testid="link-services-mobile"
               >
                 Services
               </button>
-              <button
-                onClick={() => scrollToSection("gallery")}
-                className="text-white hover:text-primary transition-colors text-left py-2"
+              <Link
+                href="/service-areas"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`transition-colors text-left py-2 ${
+                  scrolled 
+                    ? "text-foreground hover:text-primary" 
+                    : "text-white hover:text-primary"
+                }`}
+                data-testid="link-service-areas-mobile"
+              >
+                Service Areas
+              </Link>
+              <Link
+                href="/gallery"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`transition-colors text-left py-2 ${
+                  scrolled 
+                    ? "text-foreground hover:text-primary" 
+                    : "text-white hover:text-primary"
+                }`}
                 data-testid="link-gallery-mobile"
               >
                 Our Work
-              </button>
+              </Link>
               <button
                 onClick={() => scrollToSection("testimonials")}
-                className="text-white hover:text-primary transition-colors text-left py-2"
+                className={`transition-colors text-left py-2 ${
+                  scrolled 
+                    ? "text-foreground hover:text-primary" 
+                    : "text-white hover:text-primary"
+                }`}
                 data-testid="link-testimonials-mobile"
               >
                 Testimonials
               </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-white hover:text-primary transition-colors text-left py-2"
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`transition-colors text-left py-2 ${
+                  scrolled 
+                    ? "text-foreground hover:text-primary" 
+                    : "text-white hover:text-primary"
+                }`}
                 data-testid="link-contact-mobile"
               >
                 Contact
-              </button>
+              </Link>
               <a href="tel:+27698055580" className="mt-2" data-testid="link-call-mobile">
                 <Button 
                   variant="default" 
