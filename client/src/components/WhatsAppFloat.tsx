@@ -29,7 +29,7 @@ export function WhatsAppFloat() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed bottom-6 right-6 z-50 flex items-center justify-center h-16 w-16 rounded-full bg-[#25D366] text-white shadow-2xl transition-all duration-300 hover-elevate active-elevate-2 ${
+      className={`fixed bottom-6 left-6 z-50 flex items-center justify-center h-14 w-14 rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover-elevate active-elevate-2 ${
         isVisible
           ? "translate-y-0 opacity-100 visible"
           : "translate-y-20 opacity-0 invisible pointer-events-none"
@@ -37,13 +37,13 @@ export function WhatsAppFloat() {
       aria-label="Chat on WhatsApp"
       data-testid="button-whatsapp-float"
     >
-      <MessageCircle className="h-8 w-8" />
+      <MessageCircle className="h-7 w-7" />
       <span
-        className="absolute -top-1 -right-1 flex h-3.5 w-3.5"
+        className="absolute top-1 left-1 flex h-3 w-3"
         data-testid="status-whatsapp-indicator"
       >
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-yellow-500 ring-2 ring-white"></span>
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
       </span>
     </a>
   );
