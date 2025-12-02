@@ -1,4 +1,5 @@
 import { Phone, MessageCircle, MapPin, Facebook } from "lucide-react";
+import { Link } from "wouter";
 import badgeImage from "@assets/Level 1_1761330031028.png";
 import lekkerLogo from "@assets/lekkerlogo_1761554613337.png";
 
@@ -15,68 +16,88 @@ export function Footer() {
             </h3>
             <p className="text-white/70 mb-4 text-sm">
               Your trusted partner for all electrical and plumbing needs in
-              Durban. We are specialists in both trades, providing professional
-              24/7 emergency service.
+              Durban and KwaZulu-Natal. We are specialists in both trades, providing professional
+              24/7 emergency service across KZN.
             </p>
             <p className="text-white/70 text-sm">
-              Prepaid meter specialists and authorized supplier.
+              Prepaid meter specialists and authorized supplier in Durban.
             </p>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2">
               <li>
-                <button
-                  onClick={() =>
-                    document
-                      .getElementById("services")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
+                <Link
+                  href="/services/emergency-electrical"
                   className="text-white/70 hover:text-primary transition-colors text-sm"
-                  data-testid="link-services-footer"
+                  data-testid="link-emergency-electrical-footer"
                 >
-                  Services
-                </button>
+                  Emergency Electrician Durban
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() =>
-                    document
-                      .getElementById("gallery")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
+                <Link
+                  href="/services/prepaid-meters"
+                  className="text-white/70 hover:text-primary transition-colors text-sm"
+                  data-testid="link-prepaid-footer"
+                >
+                  Prepaid Meter Installation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/db-boards"
+                  className="text-white/70 hover:text-primary transition-colors text-sm"
+                  data-testid="link-db-boards-footer"
+                >
+                  DB Board Repairs KZN
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/emergency-plumbing"
+                  className="text-white/70 hover:text-primary transition-colors text-sm"
+                  data-testid="link-emergency-plumbing-footer"
+                >
+                  Emergency Plumber Durban
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/geyser-installation"
+                  className="text-white/70 hover:text-primary transition-colors text-sm"
+                  data-testid="link-geyser-footer"
+                >
+                  Geyser Installation & Repair
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/drain-services"
+                  className="text-white/70 hover:text-primary transition-colors text-sm"
+                  data-testid="link-drains-footer"
+                >
+                  Blocked Drains Durban
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/gallery"
                   className="text-white/70 hover:text-primary transition-colors text-sm"
                   data-testid="link-gallery-footer"
                 >
-                  Our Work
-                </button>
+                  Our Work Gallery
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() =>
-                    document
-                      .getElementById("testimonials")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
-                  className="text-white/70 hover:text-primary transition-colors text-sm"
-                  data-testid="link-testimonials-footer"
-                >
-                  Testimonials
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() =>
-                    document
-                      .getElementById("contact")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
+                <Link
+                  href="/contact"
                   className="text-white/70 hover:text-primary transition-colors text-sm"
                   data-testid="link-contact-footer"
                 >
-                  Contact Us
-                </button>
+                  Get a Free Quote
+                </Link>
               </li>
             </ul>
           </div>

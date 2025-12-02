@@ -1,0 +1,18 @@
+# Robots.txt for Electrifying Electrical and Plumbing
+# https://electrifyingelectrical.co.za
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://electrifyingelectrical.co.za/sitemap.xml
+
+# Allow all search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Disallow admin or private paths (if any exist in the future)
+Disallow: /api/

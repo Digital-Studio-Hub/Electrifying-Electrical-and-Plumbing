@@ -11,12 +11,13 @@ import { SEO_CONFIG } from "@/config/seo";
 
 export default function HomePage() {
   const seoTitle =
-    "Electrician & Plumber Durban | 24/7 Emergency Services | Electrifying Electrical and Plumbing";
+    "Electrician Durban | Plumber Durban | 24/7 Emergency Services | Electrifying";
   const seoDescription =
-    "Professional electrical and plumbing services in Durban. 24/7 emergency electrician and plumber. Prepaid meter specialists, geyser installation, DB board repairs, blocked drains. Call 069 805 5580 for fast, reliable service.";
+    "Looking for an electrician near me in Durban? Electrifying provides 24/7 emergency electrical and plumbing services across Durban and KZN. Prepaid meter specialists, geyser installation, DB board repairs, blocked drains. Call 069 805 5580 for fast, reliable service.";
   const keywords = [
     "electrician Durban",
     "plumber Durban",
+    "electrician near me",
     "emergency electrician Durban",
     "emergency plumber Durban",
     "prepaid meter installation Durban",
@@ -24,8 +25,10 @@ export default function HomePage() {
     "blocked drain Durban",
     "DB board repair Durban",
     "24/7 electrician Durban",
-    "electrical services Durban",
+    "electrical services KZN",
     "plumbing services Durban",
+    "electrician KwaZulu-Natal",
+    "Durban electrical contractor",
   ];
 
   return (
@@ -41,10 +44,10 @@ export default function HomePage() {
       <main>
         <Hero />
         <Services />
-        {/* <ServiceAreas /> */}
-        {/* <Gallery /> */}
+        <ServiceAreas />
+        <Gallery />
         <Testimonials />
-        {/* <Contact /> */}
+        <Contact />
       </main>
       <Footer />
     </div>

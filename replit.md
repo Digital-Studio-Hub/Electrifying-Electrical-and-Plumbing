@@ -5,6 +5,22 @@ Professional marketing website for Electrifying Electrical and Plumbing, a Durba
 
 ## Recent Changes
 
+### December 02, 2025
+- **Comprehensive SEO & Performance Optimization**:
+  - **Structured Data**: Added schema.org "Electrician" type JSON-LD with proper PostalAddress, GeoCoordinates, areaServed (City/AdministrativeArea objects), and makesOffer for all 6 services
+  - **XML Sitemap**: Created `client/public/sitemap.xml` with all pages and service detail pages for search engine indexing
+  - **Robots.txt**: Created `client/public/robots.txt` with proper crawler directives and sitemap reference
+  - **Caching Headers**: Added HTTP Cache-Control headers for static assets only (1 year, immutable); API routes explicitly no-cache
+  - **Lazy Loading**: All gallery images now use `loading="lazy"` and `decoding="async"` for improved page speed
+  - **Meta Tags Enhanced**: Added geo-location meta tags, Twitter cards, canonical URLs, and enhanced Open Graph tags
+  - **Local SEO Keywords**: Integrated "electrician near me", "KwaZulu-Natal", "KZN", and Durban suburb keywords across all pages
+  - **Internal Linking**: Footer now links to all 6 service pages using wouter Link components for better SEO crawlability
+  - **Image Alt Text**: All images have descriptive, keyword-rich alt text for accessibility and SEO
+  - **Service Data**: Enhanced all service descriptions with local keywords (Durban, KZN, specific suburbs)
+  - **DNS Prefetch**: Added `dns-prefetch` for Google Maps to improve performance
+  - **Accessibility Fix**: Removed button-in-anchor nesting in Services and ServiceAreas components
+  - **Homepage Sections**: Re-enabled ServiceAreas, Gallery, and Contact sections on homepage for complete local SEO content exposure
+
 ### October 28, 2025
 - **Multi-Route Architecture**: Restructured from single-page to multi-route app with separate pages:
   - `/service-areas` - Service Areas page with Google Maps integration
@@ -85,6 +101,7 @@ Professional marketing website for Electrifying Electrical and Plumbing, a Durba
 
 ### SEO Keywords Targeted
 - electrician Durban
+- electrician near me
 - plumber Durban
 - emergency electrician Durban
 - emergency plumber Durban
@@ -92,6 +109,17 @@ Professional marketing website for Electrifying Electrical and Plumbing, a Durba
 - geyser repair Durban
 - blocked drain Durban
 - DB board repair Durban
+- electrician KwaZulu-Natal
+- electrical services KZN
+- plumber KZN
+
+### SEO Technical Implementation
+- **Sitemap**: `client/public/sitemap.xml` - All pages with priority and update frequency
+- **Robots.txt**: `client/public/robots.txt` - Crawler permissions and sitemap reference
+- **Structured Data**: LocalBusiness schema in `client/index.html`
+- **Canonical URLs**: Set to https://electrifyingelectrical.co.za/
+- **Meta Tags**: Title, description, keywords, Open Graph, Twitter cards, geo-location
+- **Caching**: Static assets 1 year, HTML 1 hour with stale-while-revalidate
 
 ### User Preferences
 - **Brand Identity**: Professional specialists (not handymen) in both electrical and plumbing

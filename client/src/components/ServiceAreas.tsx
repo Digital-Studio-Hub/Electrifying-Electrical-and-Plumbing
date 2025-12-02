@@ -54,16 +54,16 @@ export function ServiceAreas() {
               className="text-4xl md:text-5xl font-bold text-foreground"
               data-testid="text-service-areas-title"
             >
-              We Service All of Durban
+              Electrician Near Me in Durban & KZN
             </h2>
           </div>
           <p
             className="text-lg text-muted-foreground max-w-3xl mx-auto"
             data-testid="text-service-areas-description"
           >
-            Our expert electricians and plumbers provide fast, reliable service
-            across Durban and surrounding areas. No job too big or small. Call
-            us for service in your area.
+            Looking for an electrician or plumber near you? Our expert team provides fast, reliable 
+            electrical and plumbing services across Durban and all of KwaZulu-Natal. From Umhlanga 
+            to Amanzimtoti, Pinetown to Ballito - we've got you covered 24/7.
           </p>
         </div>
 
@@ -125,26 +125,21 @@ export function ServiceAreas() {
 
         <div className="mt-12 text-center">
           <div className="inline-flex flex-col sm:flex-row gap-4 items-center">
-            <a href="tel:+27698055580" data-testid="link-call-service-areas">
-              <button
-                className="bg-primary text-primary-foreground px-8 py-4 rounded-md font-semibold text-lg hover-elevate active-elevate-2"
-                data-testid="button-call-service-areas"
-              >
-                Call 069 805 5580 Now
-              </button>
+            <a 
+              href="tel:+27698055580" 
+              className="bg-primary text-primary-foreground px-8 py-4 rounded-md font-semibold text-lg hover-elevate active-elevate-2 inline-block"
+              data-testid="link-call-service-areas"
+            >
+              Call 069 805 5580 Now
             </a>
             <a
               href="https://wa.me/27614055794?text=Hi%2C%20I%20need%20electrical%20or%20plumbing%20service%20in%20Durban."
               target="_blank"
               rel="noopener noreferrer"
+              className="bg-secondary text-secondary-foreground px-8 py-4 rounded-md font-semibold text-lg hover-elevate active-elevate-2 inline-block"
               data-testid="link-whatsapp-service-areas"
             >
-              <button
-                className="bg-secondary text-secondary-foreground px-8 py-4 rounded-md font-semibold text-lg hover-elevate active-elevate-2"
-                data-testid="button-whatsapp-service-areas"
-              >
-                WhatsApp for Quote
-              </button>
+              WhatsApp for Quote
             </a>
           </div>
         </div>

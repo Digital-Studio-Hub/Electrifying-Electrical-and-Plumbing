@@ -12,6 +12,35 @@ if (!ZEPTOMAIL_TOKEN) {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Performance: Add caching headers for static assets only
+  app.use((req, res, next) => {
+    // Skip caching for API routes - never cache
+    if (req.url.startsWith('/api/')) {
+      res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+      return next();
+    }
+    // Cache static assets for 1 year (fingerprinted by Vite)
+    if (req.url.match(/\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2)$/)) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    }
+    // Don't cache HTML or dynamic routes - let browser handle freshness
+    // This prevents stale content issues with marketing pages
+    next();
+  });
+
+  // Serve sitemap.xml and robots.txt with proper headers
+  app.get('/sitemap.xml', (req, res) => {
+    res.setHeader('Content-Type', 'application/xml');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.sendFile('sitemap.xml', { root: './client/public' });
+  });
+
+  app.get('/robots.txt', (req, res) => {
+    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.sendFile('robots.txt', { root: './client/public' });
+  });
+
   app.post("/api/contact", async (req, res) => {
     try {
       const validatedData = contactFormSchema.parse(req.body);

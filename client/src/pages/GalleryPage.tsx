@@ -5,9 +5,9 @@ import { SEO } from "@/components/SEO";
 import { SEO_CONFIG } from "@/config/seo";
 
 export default function GalleryPage() {
-  const seoTitle = "Our Work Gallery - Electrical & Plumbing Projects | Electrifying";
-  const seoDescription = "View our portfolio of completed electrical and plumbing projects in Durban. Professional installations, repairs, and maintenance work by certified specialists.";
-  const keywords = ["electrical work durban", "plumbing projects durban", "prepaid meter installation", "battery backup", "electrical maintenance portfolio"];
+  const seoTitle = "Our Work Gallery | Electrician Durban Portfolio | Electrifying";
+  const seoDescription = "See our portfolio of completed electrical and plumbing projects across Durban and KZN. Battery backup installations, prepaid meter specialists, DB board upgrades, geyser repairs. Quality workmanship by certified electricians near you.";
+  const keywords = ["electrical work Durban", "plumbing projects KZN", "prepaid meter installation photos", "electrician portfolio Durban", "plumber portfolio Durban", "electrical contractor gallery", "KwaZulu-Natal electrician"];
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
