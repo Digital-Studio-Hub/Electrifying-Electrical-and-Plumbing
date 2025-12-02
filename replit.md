@@ -38,11 +38,11 @@ Professional marketing website for Electrifying Electrical and Plumbing, a Durba
   - Graceful error handling (logs errors but doesn't fail user request)
 - **WhatsApp Floating Button**:
   - Added floating WhatsApp button component (`WhatsAppFloat.tsx`)
-  - Fixed bottom-right positioning with smooth animations
-  - Appears after scrolling 300px down the page
+  - Fixed bottom-right positioning (always visible, no scroll threshold)
   - WhatsApp green background (#25D366) with animated pulse indicator
+  - Icon-only by default, expands with "Chat with us" text on hover
   - Pre-filled message linking to WhatsApp number 061 405 5794
-  - Uses approved `hover-elevate` and `active-elevate-2` design patterns
+  - Enhanced visibility with scale and shadow effects on hover
   - Available on all pages via App.tsx integration
 - **Code Quality**: Removed all emoji from codebase per strict design guidelines (replaced with text-based alternatives)
 
