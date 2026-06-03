@@ -4,6 +4,5 @@ dist
 .gitignore
 .vscode
 .replit
-attached_assets
 npm-debug.log*
 Dockerfile*
