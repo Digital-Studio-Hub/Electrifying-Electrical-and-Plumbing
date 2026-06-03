@@ -70,11 +70,18 @@ app.use((req, res, next) => {
   // Other ports are firewalled. Default to 5000 if not specified.
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
+  const disableReusePort = process.env.DISABLE_REUSE_PORT === "true";
   const port = parseInt(process.env.PORT || '5000', 10);
+
+  server.on("error", (err) => {
+    console.error("Server failed to start:", err);
+    process.exit(1);
+  });
+
   server.listen({
     port,
     host: "0.0.0.0",
-    reusePort: true,
+    reusePort: !disableReusePort,
   }, () => {
     log(`serving on port ${port}`);
   });

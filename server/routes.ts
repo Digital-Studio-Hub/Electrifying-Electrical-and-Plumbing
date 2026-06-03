@@ -2,14 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { contactFormSchema } from "@shared/schema";
 import { z } from "zod";
-import { SendMailClient } from "zeptomail";
-
-const ZEPTOMAIL_URL = "https://api.zeptomail.com/v1.1/email";
-const ZEPTOMAIL_TOKEN = process.env.ZEPTOMAIL_API_KEY;
-
-if (!ZEPTOMAIL_TOKEN) {
-  console.warn("WARNING: ZEPTOMAIL_API_KEY not set. Email functionality will be disabled.");
-}
+import { sendEmail } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Performance: Add caching headers for static assets only
@@ -54,12 +47,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log("Timestamp:", new Date().toISOString());
       console.log("=====================================");
 
-      // Send email notification via ZeptoMail
-      if (ZEPTOMAIL_TOKEN) {
-        try {
-          const client = new SendMailClient({ url: ZEPTOMAIL_URL, token: ZEPTOMAIL_TOKEN });
-
-          const emailHtml = `
+      try {
+        const emailHtml = `
             <!DOCTYPE html>
             <html>
             <head>
@@ -123,30 +112,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
             </html>
           `;
 
-          await client.sendMail({
-            from: {
-              address: "noreply@electrifyelectrical.co.za",
-              name: "Electrifying Website"
-            },
-            to: [
-              {
-                email_address: {
-                  address: "raymond@digitalstudiohub.com",
-                  name: "Raymond"
-                }
-              }
-            ],
-            subject: `${validatedData.service === 'Emergency' ? '[URGENT] EMERGENCY - ' : ''}New Contact: ${validatedData.name} - ${validatedData.service}`,
-            htmlbody: emailHtml
-          });
-
-          console.log("SUCCESS: Email notification sent successfully via ZeptoMail");
-        } catch (emailError) {
-          console.error("ERROR: Failed to send email via ZeptoMail:", emailError);
-          // Don't fail the request if email fails - still return success to user
-        }
-      } else {
-        console.log("WARNING: Email not sent - ZEPTOMAIL_API_KEY not configured");
+        await sendEmail({
+          to: "raymond@digitalstudiohub.com",
+          subject: `${validatedData.service === 'Emergency' ? '[URGENT] EMERGENCY - ' : ''}New Contact: ${validatedData.name} - ${validatedData.service}`,
+          html: emailHtml,
+        });
+      } catch (emailError) {
+        console.error("ERROR: Failed to send email notification:", emailError);
+        // Don't fail the request if email fails - still return success to user
       }
       
       res.json({

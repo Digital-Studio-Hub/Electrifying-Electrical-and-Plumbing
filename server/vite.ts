@@ -1,12 +1,8 @@
 import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
-import { createServer as createViteServer, createLogger } from "vite";
 import { type Server } from "http";
-import viteConfig from "../vite.config";
 import { nanoid } from "nanoid";
-
-const viteLogger = createLogger();
 
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
@@ -20,14 +16,55 @@ export function log(message: string, source = "express") {
 }
 
 export async function setupVite(app: Express, server: Server) {
+  // Keep Vite and its config out of the production startup path.
+  const [{ createServer: createViteServer, createLogger }, runtimeErrorOverlay, react] = await Promise.all([
+    import("vite"),
+    import("@replit/vite-plugin-runtime-error-modal"),
+    import("@vitejs/plugin-react"),
+  ]);
+
+  const viteLogger = createLogger();
+
   const serverOptions = {
     middlewareMode: true,
     hmr: { server },
     allowedHosts: true as const,
   };
 
+  const plugins = [
+    react.default(),
+    runtimeErrorOverlay.default(),
+  ];
+
+  if (process.env.NODE_ENV !== "production" && process.env.REPL_ID !== undefined) {
+    const [cartographer, devBanner] = await Promise.all([
+      import("@replit/vite-plugin-cartographer"),
+      import("@replit/vite-plugin-dev-banner"),
+    ]);
+    plugins.push(cartographer.cartographer(), devBanner.devBanner());
+  }
+
   const vite = await createViteServer({
-    ...viteConfig,
+    plugins,
+    resolve: {
+      alias: {
+        "@": path.resolve(import.meta.dirname, "..", "client", "src"),
+        "@shared": path.resolve(import.meta.dirname, "..", "shared"),
+        "@assets": path.resolve(import.meta.dirname, "..", "attached_assets"),
+      },
+    },
+    root: path.resolve(import.meta.dirname, "..", "client"),
+    build: {
+      outDir: path.resolve(import.meta.dirname, "..", "dist", "public"),
+      emptyOutDir: true,
+    },
+    server: {
+      fs: {
+        strict: true,
+        deny: ["**/.*"],
+      },
+      ...serverOptions,
+    },
     configFile: false,
     customLogger: {
       ...viteLogger,
@@ -36,7 +73,6 @@ export async function setupVite(app: Express, server: Server) {
         process.exit(1);
       },
     },
-    server: serverOptions,
     appType: "custom",
   });
 
